@@ -21,6 +21,8 @@ abstract class Routes {
   static const SUBSCRIPTIONS = _Paths.SUBSCRIPTIONS;
   static const FAVORITE = _Paths.FAVORITE;
   static const FAVOURITES = _Paths.FAVOURITES;
+  static const SEARCH = _Paths.SEARCH;
+  static const RECENT = _Paths.RECENT;
 }
 
 abstract class _Paths {
@@ -43,4 +45,6 @@ abstract class _Paths {
   static const SUBSCRIPTIONS = '/subscriptions';
   static const FAVORITE = '/favorite';
   static const FAVOURITES = '/favourites';
+  static const SEARCH = '/search';
+  static const RECENT = '/recent';
 }

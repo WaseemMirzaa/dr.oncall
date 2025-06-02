@@ -1,3 +1,4 @@
+import 'package:dr_on_call/app/widgets/filter_items.dart';
 import 'package:dr_on_call/config/AppColors.dart';
 import 'package:dr_on_call/config/AppIcons.dart';
 import 'package:dr_on_call/config/AppTextStyle.dart';
@@ -10,7 +11,9 @@ class SymptomSelectionWidget extends StatefulWidget {
   final Function(String) onSymptomTap; // New callback for navigation
   final EdgeInsetsGeometry? padding;
   final double spacing;
-  final bool showHeartIcon; // New parameter for optional heart icon
+  final bool showHeartIcon;
+  final bool showRecentIcon;
+  final bool showFilter;
 
   const SymptomSelectionWidget({
     Key? key,
@@ -19,7 +22,9 @@ class SymptomSelectionWidget extends StatefulWidget {
     required this.onSymptomTap, // Required parameter
     this.padding,
     this.spacing = 8.0,
-    this.showHeartIcon = false, // Default to false
+    this.showHeartIcon = false,
+    this.showRecentIcon = false,
+    this.showFilter = false,
   }) : super(key: key);
 
   @override
@@ -43,31 +48,44 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Search field
-          Container(
-            height: 50,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: TextField(
-                onChanged: (value) {
-                  setState(() {
-                    _searchQuery = value;
-                  });
-                },
-                decoration: InputDecoration(
-                  hintText: 'Search',
-                  hintStyle: AppTextStyles.regular.copyWith(
-                      fontSize: 14,
-                      color: AppColors.txtBlackColor.withOpacity(0.5)),
-                  prefixIcon:
-                      const Icon(Icons.search_rounded, color: Colors.black),
-                  border: InputBorder.none,
-                  contentPadding: const EdgeInsets.symmetric(vertical: 12),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          _searchQuery = value;
+                        });
+                      },
+                      decoration: InputDecoration(
+                        hintText: 'Search',
+                        hintStyle: AppTextStyles.regular.copyWith(
+                            fontSize: 14,
+                            color: AppColors.txtBlackColor.withOpacity(0.5)),
+                        prefixIcon: const Icon(Icons.search_rounded,
+                            color: Colors.black),
+                        border: InputBorder.none,
+                        contentPadding:
+                            const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
+              if (widget.showFilter)
+                SizedBox(
+                  height: 50,
+                  width: 60,
+                  child: FilterItems(),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           if (filteredSymptoms.isEmpty)
@@ -141,12 +159,22 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                               if (widget.showHeartIcon)
                                 Image.asset(
                                   AppIcons
-                                      .like, // Make sure this path is correct
-                                  width: 20,
-                                  height: 20,
+                                      .heart, // Make sure this path is correct
+                                  width: 25,
+                                  height: 25,
                                   color: isSelected
                                       ? AppColors.txtOrangeColor
                                       : AppColors.txtRedColor,
+                                ),
+                              if (widget.showRecentIcon)
+                                Image.asset(
+                                  AppIcons
+                                      .recent, // Make sure this path is correct
+                                  width: 25,
+                                  height: 25,
+                                  color: isSelected
+                                      ? AppColors.txtOrangeColor
+                                      : AppColors.txtWhiteColor,
                                 ),
                             ],
                           ),

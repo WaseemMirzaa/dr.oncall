@@ -25,13 +25,13 @@ class HomeController extends GetxController {
     // Add navigation logic here
     switch (index) {
       case 0:
-        // Handle search view
+        Get.toNamed(Routes.SEARCH);
         break;
       case 1:
-        Get.toNamed(Routes.FAVOURITES); // Favorites navigation
+        Get.toNamed(Routes.FAVOURITES);
         break;
       case 2:
-        // Handle recent view
+        Get.toNamed(Routes.RECENT);
         break;
     }
   }

@@ -4,6 +4,7 @@ class AppIcons {
   static const back = 'assets/icons/back.png';
   static const search = 'assets/icons/search.png';
   static const like = 'assets/icons/like.png';
+  static const heart = 'assets/icons/heart.png';
   static const recent = 'assets/icons/recent.png';
   static const clinic = 'assets/icons/clinic.png';
   static const test = 'assets/icons/test.png';

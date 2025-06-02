@@ -14,7 +14,6 @@ import '../modules/clinical_diagnosis/bindings/clinical_diagnosis_binding.dart';
 import '../modules/clinical_diagnosis/views/clinical_diagnosis_view.dart';
 import '../modules/clinical_presentations/bindings/clinical_presentations_binding.dart';
 import '../modules/clinical_presentations/views/clinical_presentations_view.dart';
-
 import '../modules/favourites/bindings/favourites_binding.dart';
 import '../modules/favourites/views/favourites_view.dart';
 import '../modules/forgotview/bindings/forgotview_binding.dart';
@@ -31,6 +30,12 @@ import '../modules/news2_core/bindings/news2_core_binding.dart';
 import '../modules/news2_core/views/news2_core_view.dart';
 import '../modules/onboardingscreen/bindings/onboardingscreen_binding.dart';
 import '../modules/onboardingscreen/views/onboardingscreen_view.dart';
+import '../modules/recent/bindings/recent_binding.dart';
+import '../modules/recent/views/recent_view.dart';
+import '../modules/search/bindings/search_binding.dart';
+import '../modules/search/bindings/search_binding.dart';
+import '../modules/search/views/search_view.dart';
+import '../modules/search/views/search_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
 import '../modules/signup/views/signup_view.dart';
 import '../modules/subscriptions/bindings/subscriptions_binding.dart';
@@ -130,6 +135,23 @@ class AppPages {
       name: _Paths.FAVOURITES,
       page: () => const FavouritesView(),
       binding: FavouritesBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH,
+      page: () => const SearchView(),
+      binding: SearchBinding(),
+      children: [
+        GetPage(
+          name: _Paths.SEARCH,
+          page: () => const SearchView(),
+          binding: SearchBinding(),
+        ),
+      ],
+    ),
+    GetPage(
+      name: _Paths.RECENT,
+      page: () => const RecentView(),
+      binding: RecentBinding(),
     ),
   ];
 }
