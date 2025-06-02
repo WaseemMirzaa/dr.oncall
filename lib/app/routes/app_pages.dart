@@ -14,6 +14,9 @@ import '../modules/clinical_diagnosis/bindings/clinical_diagnosis_binding.dart';
 import '../modules/clinical_diagnosis/views/clinical_diagnosis_view.dart';
 import '../modules/clinical_presentations/bindings/clinical_presentations_binding.dart';
 import '../modules/clinical_presentations/views/clinical_presentations_view.dart';
+
+import '../modules/favourites/bindings/favourites_binding.dart';
+import '../modules/favourites/views/favourites_view.dart';
 import '../modules/forgotview/bindings/forgotview_binding.dart';
 import '../modules/forgotview/views/forgotview_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -122,6 +125,11 @@ class AppPages {
       name: _Paths.SUBSCRIPTIONS,
       page: () => const SubscriptionsView(),
       binding: SubscriptionsBinding(),
+    ),
+    GetPage(
+      name: _Paths.FAVOURITES,
+      page: () => const FavouritesView(),
+      binding: FavouritesBinding(),
     ),
   ];
 }

@@ -19,6 +19,8 @@ abstract class Routes {
   static const NEWS2_CORE = _Paths.NEWS2_CORE;
   static const ABOUT_VIEW = _Paths.ABOUT_VIEW;
   static const SUBSCRIPTIONS = _Paths.SUBSCRIPTIONS;
+  static const FAVORITE = _Paths.FAVORITE;
+  static const FAVOURITES = _Paths.FAVOURITES;
 }
 
 abstract class _Paths {
@@ -39,4 +41,6 @@ abstract class _Paths {
   static const NEWS2_CORE = '/news2-core';
   static const ABOUT_VIEW = '/about-view';
   static const SUBSCRIPTIONS = '/subscriptions';
+  static const FAVORITE = '/favorite';
+  static const FAVOURITES = '/favourites';
 }

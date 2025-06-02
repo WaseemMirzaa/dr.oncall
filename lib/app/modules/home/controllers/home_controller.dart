@@ -22,6 +22,18 @@ class HomeController extends GetxController {
 
   void changeBottomNavIndex(int index) {
     selectedBottomNavIndex.value = index;
+    // Add navigation logic here
+    switch (index) {
+      case 0:
+        // Handle search view
+        break;
+      case 1:
+        Get.toNamed(Routes.FAVOURITES); // Favorites navigation
+        break;
+      case 2:
+        // Handle recent view
+        break;
+    }
   }
 
   void onClinicalPresentationsTap() {

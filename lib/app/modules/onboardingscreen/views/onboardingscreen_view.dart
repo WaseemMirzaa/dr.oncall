@@ -1,6 +1,7 @@
 import 'package:dr_on_call/app/widgets/back_icon_button.dart';
 import 'package:dr_on_call/config/AppImages.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 
@@ -27,12 +28,13 @@ class OnboardingscreenView extends GetView<OnboardingscreenController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: BackIconButton(onTap: () {
-                Navigator.pop(context);
-              }),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 20.0),
+            //   child: BackIconButton(onTap: () {
+            //     Navigator.pop(context);
+            //   }),
+            // ),
+            Container(),
             OnCallHeader(),
             AuthButtons(),
           ],

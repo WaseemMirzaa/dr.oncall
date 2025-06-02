@@ -1,4 +1,5 @@
 import 'package:dr_on_call/config/AppColors.dart';
+import 'package:dr_on_call/config/AppIcons.dart';
 import 'package:dr_on_call/config/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -126,11 +127,16 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                             right: 10.0,
                             left: 10,
                           ),
-                          child: Text(symptom,
-                              style: AppTextStyles.bold.copyWith(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.txtWhiteColor)),
+                          child: Row(
+                            children: [
+                              Text(symptom,
+                                  style: AppTextStyles.bold.copyWith(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.txtWhiteColor)),
+                              // icon widget
+                            ],
+                          ),
                         ),
                       ),
                     ),
