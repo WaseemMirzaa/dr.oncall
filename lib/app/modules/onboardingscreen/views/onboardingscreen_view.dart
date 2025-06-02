@@ -11,35 +11,42 @@ import 'mini_widgets/on_call_header.dart';
 
 class OnboardingscreenView extends GetView<OnboardingscreenController> {
   const OnboardingscreenView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AppImages.dr),
-          fit: BoxFit.cover, // optional
-        ),
+      body: Stack(
+        children: [
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(AppImages.dr),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: const Color(0xFF001631).withOpacity(0.5),
+          ),
+
+          // ✅ This goes inside children
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(),
+                OnCallHeader(),
+                AuthButtons(),
+              ],
+            ),
+          ),
+        ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 20.0),
-            //   child: BackIconButton(onTap: () {
-            //     Navigator.pop(context);
-            //   }),
-            // ),
-            Container(),
-            OnCallHeader(),
-            AuthButtons(),
-          ],
-        ),
-      ),
-    ));
+    );
   }
 }

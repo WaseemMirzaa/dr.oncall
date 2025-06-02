@@ -19,11 +19,11 @@ class SignupBottomText extends StatelessWidget {
         children: [
           TextSpan(
             text: AppText.AlreadyAccount,
-            style: AppTextStyles.regular.copyWith(fontSize: 14),
+            style: AppTextStyles.regular.copyWith(fontSize: 15),
           ),
           TextSpan(
             text: AppText.logIn,
-            style: AppTextStyles.medium.copyWith(fontSize: 14),
+            style: AppTextStyles.medium.copyWith(fontSize: 15),
             recognizer: TapGestureRecognizer()..onTap = onLogInTap,
           ),
         ],

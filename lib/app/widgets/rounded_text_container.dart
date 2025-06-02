@@ -30,8 +30,8 @@ class RoundedTextContainer extends StatelessWidget {
         ),
         child: Center(
           child: Text(text,
-              style:
-                  AppTextStyles.bold.copyWith(color: AppColors.txtBlackColor)),
+              style: AppTextStyles.bold
+                  .copyWith(color: AppColors.txtBlackColor, fontSize: 18)),
         ),
       ),
     );

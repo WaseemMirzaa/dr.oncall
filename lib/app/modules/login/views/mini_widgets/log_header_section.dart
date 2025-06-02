@@ -31,7 +31,7 @@ class LoginHeaderSection extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           AppText.plzlogIn,
-          style: AppTextStyles.regular.copyWith(fontSize: 13.2),
+          style: AppTextStyles.regular.copyWith(fontSize: 13.5),
         ),
       ],
     );

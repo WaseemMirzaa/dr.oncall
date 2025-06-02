@@ -57,15 +57,15 @@ class CustomBottomNav extends StatelessWidget {
         children: [
           Image.asset(
             icon,
-            width: 30,
-            height: 30,
+            width: 35,
+            height: 35,
             color:
                 isSelected ? AppColors.txtOrangeColor : AppColors.txtWhiteColor,
           ),
           const SizedBox(height: 4),
           Text(label,
               style: AppTextStyles.regular.copyWith(
-                fontSize: 12,
+                fontSize: 13,
                 color: isSelected
                     ? AppColors.txtOrangeColor
                     : AppColors.txtWhiteColor,

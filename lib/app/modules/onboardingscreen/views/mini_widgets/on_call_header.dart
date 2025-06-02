@@ -21,8 +21,8 @@ class OnCallHeader extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(AppText.on_call,
-              style:
-                  AppTextStyles.regular.copyWith(fontWeight: FontWeight.w500)),
+              style: AppTextStyles.regular
+                  .copyWith(fontWeight: FontWeight.w500, fontSize: 15)),
         ],
       ),
     );

@@ -19,11 +19,11 @@ class ForgotBottomText extends StatelessWidget {
         children: [
           TextSpan(
             text: AppText.back,
-            style: AppTextStyles.regular.copyWith(fontSize: 14),
+            style: AppTextStyles.regular.copyWith(fontSize: 15),
           ),
           TextSpan(
             text: AppText.logIn,
-            style: AppTextStyles.bold.copyWith(fontSize: 14),
+            style: AppTextStyles.bold.copyWith(fontSize: 15),
             recognizer: TapGestureRecognizer()..onTap = onLoginTap,
           ),
         ],

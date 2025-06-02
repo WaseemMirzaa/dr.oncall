@@ -12,10 +12,10 @@ class BackIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: GestureDetector(
-        onTap: onTap,
+    return GestureDetector(
+      onTap: onTap,
+      child: Align(
+        alignment: Alignment.topLeft,
         child: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Image.asset(

@@ -19,15 +19,18 @@ class HomeView extends GetView<HomeController> {
       body: BackgroundContainer2(
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 10,
+              ),
               // Header with Dr.OnCall title
               Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 70.0),
+                  padding: const EdgeInsets.symmetric(vertical: 75.0),
                   child: Image.asset(
                     AppImages.drOnCall,
                     // height: 45,
-                    width: 185,
+                    width: 200,
                     color: AppColors.txtOrangeColor,
                   )),
 

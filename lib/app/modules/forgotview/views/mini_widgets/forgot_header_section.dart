@@ -33,10 +33,13 @@ class ForgotHeaderSection extends StatelessWidget {
         const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.only(right: 23.0, left: 23.0),
-          child: Text(
-            AppText.forgotDecs,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.regular.copyWith(fontSize: 13),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              AppText.forgotDecs,
+              textAlign: TextAlign.center,
+              style: AppTextStyles.regular.copyWith(fontSize: 14),
+            ),
           ),
         ),
       ],
