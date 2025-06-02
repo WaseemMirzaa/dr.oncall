@@ -23,6 +23,7 @@ class FavoritesList extends StatelessWidget {
       onSelectionChanged: (selectedSymptoms) {
         print('Selected symptoms: $selectedSymptoms');
       },
+      showHeartIcon: true,
       padding: const EdgeInsets.all(16.0),
       spacing: 8.0,
       onSymptomTap: (symptom) {

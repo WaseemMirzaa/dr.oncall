@@ -10,6 +10,7 @@ class SymptomSelectionWidget extends StatefulWidget {
   final Function(String) onSymptomTap; // New callback for navigation
   final EdgeInsetsGeometry? padding;
   final double spacing;
+  final bool showHeartIcon; // New parameter for optional heart icon
 
   const SymptomSelectionWidget({
     Key? key,
@@ -18,6 +19,7 @@ class SymptomSelectionWidget extends StatefulWidget {
     required this.onSymptomTap, // Required parameter
     this.padding,
     this.spacing = 8.0,
+    this.showHeartIcon = false, // Default to false
   }) : super(key: key);
 
   @override
@@ -128,6 +130,7 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                             left: 10,
                           ),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(symptom,
                                   style: AppTextStyles.bold.copyWith(
@@ -135,6 +138,16 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                                       fontWeight: FontWeight.w500,
                                       color: AppColors.txtWhiteColor)),
                               // icon widget
+                              if (widget.showHeartIcon)
+                                Image.asset(
+                                  AppIcons
+                                      .like, // Make sure this path is correct
+                                  width: 20,
+                                  height: 20,
+                                  color: isSelected
+                                      ? AppColors.txtOrangeColor
+                                      : AppColors.txtRedColor,
+                                ),
                             ],
                           ),
                         ),
