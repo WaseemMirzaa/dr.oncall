@@ -65,7 +65,7 @@ class _FilterItemsState extends State<FilterItems> {
       ),
     ).whenComplete(() {
       setState(() {
-        _isTapped = false; // Reset when bottom sheet is closed
+        _isTapped = false;
       });
     });
   }
