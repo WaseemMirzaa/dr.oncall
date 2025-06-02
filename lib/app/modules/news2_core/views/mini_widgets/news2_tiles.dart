@@ -81,7 +81,7 @@ class _SymptomSelectionWidgetState extends State<News2Tiles> {
                             padding: const EdgeInsets.only(left: 10.0),
                             child: Text(symptom,
                                 style: AppTextStyles.medium.copyWith(
-                                    fontSize: 17,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                     color: AppColors.txtWhiteColor)),
                           ),

@@ -33,7 +33,9 @@ class LoginForm extends StatelessWidget {
         GestureDetector(
           onTap: onForgotPasswordTap,
           child: Text(AppText.forgotPassword,
-              style: AppTextStyles.medium.copyWith(fontSize: 13.5)),
+              style: AppTextStyles.medium.copyWith(
+                fontSize: 14,
+              )),
         ),
         const SizedBox(height: 20),
         RoundedTextContainer(

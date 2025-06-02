@@ -17,17 +17,17 @@ class ClinicalInfoSection extends StatelessWidget {
         const SizedBox(height: 10),
         MedicalExpansionTile(
           title: AppText.renalDoseAdjustments,
-          content: 'List of required investigations...',
+          content: AppText.Desc,
         ),
         const SizedBox(height: 10),
         MedicalExpansionTile(
           title: AppText.maximumSafeDose,
-          content: 'Step-by-step management plan...',
+          content: AppText.Desc,
         ),
         const SizedBox(height: 10),
         MedicalExpansionTile(
           title: AppText.preparationInstructions,
-          content: 'Step-by-step management plan...',
+          content: AppText.Desc,
         ),
         const SizedBox(height: 10),
         // Container(
@@ -37,9 +37,9 @@ class ClinicalInfoSection extends StatelessWidget {
         //   ),
         //   child: MedicalExpansionTile(
         //     title: 'Red Flags',
-        //     content: 'Warning signs to watch for...',
+        //     content: AppText.Desc,'Warning signs to watch for...',
         //     isRedFlag: true,
-        //     isRedContent: true,
+        //     isRedcontent: AppText.Desc,true,
         //   ),
         // ),
       ],

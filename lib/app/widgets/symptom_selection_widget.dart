@@ -66,9 +66,8 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                       },
                       decoration: InputDecoration(
                         hintText: 'Search',
-                        hintStyle: AppTextStyles.regular.copyWith(
-                            fontSize: 14,
-                            color: AppColors.txtBlackColor.withOpacity(0.5)),
+                        hintStyle: AppTextStyles.regular
+                            .copyWith(fontSize: 14, color: AppColors.darkBlue),
                         prefixIcon: const Icon(Icons.search_rounded,
                             color: Colors.black),
                         border: InputBorder.none,
@@ -152,20 +151,22 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                             children: [
                               Text(symptom,
                                   style: AppTextStyles.bold.copyWith(
-                                      fontSize: 16,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.w500,
                                       color: AppColors.txtWhiteColor)),
                               // icon widget
                               if (widget.showHeartIcon)
                                 Image.asset(
-                                  AppIcons
-                                      .heart, // Make sure this path is correct
+                                  isSelected
+                                      ? AppIcons.like
+                                      : AppIcons.heart, // swap icons here
                                   width: 25,
                                   height: 25,
                                   color: isSelected
-                                      ? AppColors.txtOrangeColor
+                                      ? Colors.grey
                                       : AppColors.txtRedColor,
                                 ),
+
                               if (widget.showRecentIcon)
                                 Image.asset(
                                   AppIcons

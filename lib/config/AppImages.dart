@@ -6,4 +6,5 @@ class AppImages {
   static const bg1 = 'assets/images/bg1.png';
   static const drOnCall = 'assets/images/Dr.OnCall.png';
   static const bg2Copy = 'assets/images/bg2_Copy.png';
+  static const buttonField = 'assets/images/Field.png';
 }

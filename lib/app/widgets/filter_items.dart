@@ -28,34 +28,59 @@ class _FilterItemsState extends State<FilterItems> {
         child: Wrap(
           children: [
             ListTile(
-              leading: const Icon(Icons.category),
-              title: const Text('Filter by Category'),
-              onTap: () {
-                Get.back();
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.list),
-              title: const Text('Filter by List'),
+              leading: Image.asset(
+                AppIcons.clinic,
+                width: 30,
+                height: 30,
+                color: AppColors.txtBlackColor,
+              ),
+              title: const Text('Clinical Presentation'),
               onTap: () {
                 Get.back();
               },
             ),
             ListTile(
               leading: Image.asset(
-                AppIcons.heart,
-                width: 26,
-                height: 26,
+                AppIcons.test,
+                width: 30,
+                height: 30,
                 color: AppColors.txtBlackColor,
               ),
-              title: const Text('Filter by Favorites'),
+              title: const Text('Biochemical Emergencies'),
               onTap: () {
                 Get.back();
               },
             ),
             ListTile(
-              leading: const Icon(Icons.cancel),
-              title: const Text('Cancel'),
+              leading: Image.asset(
+                AppIcons.checkUp,
+                width: 30,
+                height: 30,
+                color: AppColors.txtBlackColor,
+              ),
+              title: const Text('Clinical Diagnosis'),
+              onTap: () {
+                Get.back();
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                AppIcons.report,
+                width: 30,
+                height: 30,
+                color: AppColors.txtBlackColor,
+              ),
+              title: const Text('News2 Score'),
+              onTap: () {
+                Get.back();
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.cancel,
+                weight: 35,
+              ),
+              title: const Text('Clear'),
               onTap: () {
                 Get.back();
               },

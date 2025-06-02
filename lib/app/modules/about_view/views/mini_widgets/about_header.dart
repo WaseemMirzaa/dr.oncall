@@ -31,9 +31,10 @@ class AboutHeader extends StatelessWidget {
           Text(AppText.about, style: AppTextStyles.bold.copyWith(fontSize: 25)),
           const SizedBox(height: 4),
           Padding(
-            padding: const EdgeInsets.only(right: 23.0, left: 23.0),
+            padding: const EdgeInsets.only(right: 40, left: 40),
             child: Text(AppText.aboutDesc,
-                textAlign: TextAlign.center, style: AppTextStyles.regular),
+                textAlign: TextAlign.center,
+                style: AppTextStyles.regular.copyWith(fontSize: 14.5)),
           ),
         ],
       ),

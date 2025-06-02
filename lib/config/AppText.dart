@@ -111,7 +111,7 @@ class AppText {
 
   // about view texts
   static const String aboutDesc =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ';
   static const String subscription = 'Subscription';
   static const String trial = 'Free Trial';
   static const String plan = 'Basic Plan';

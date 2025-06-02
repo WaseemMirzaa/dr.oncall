@@ -12,17 +12,17 @@ class BioChemicalSection extends StatelessWidget {
       children: [
         MedicalExpansionTile(
           title: AppText.definition,
-          content: AppText.rapidOnsetDesc,
+          content: AppText.Desc,
         ),
         // const SizedBox(height: 10),
         MedicalExpansionTile(
           title: AppText.symptoms,
-          content: 'List of required investigations...',
+          content: AppText.Desc,
         ),
         // const SizedBox(height: 10),
         MedicalExpansionTile(
           title: AppText.signs,
-          content: 'Step-by-step management plan...',
+          content: AppText.Desc,
         ),
       ],
     );

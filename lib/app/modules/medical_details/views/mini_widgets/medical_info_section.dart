@@ -17,12 +17,12 @@ class MedicalInfoSection extends StatelessWidget {
         const SizedBox(height: 10),
         MedicalExpansionTile(
           title: 'Investigations',
-          content: 'List of required investigations...',
+          content: AppText.Desc,
         ),
         const SizedBox(height: 10),
         MedicalExpansionTile(
           title: 'Management Plan',
-          content: 'Step-by-step management plan...',
+          content: AppText.Desc,
         ),
         const SizedBox(height: 10),
         Container(
@@ -32,7 +32,7 @@ class MedicalInfoSection extends StatelessWidget {
           ),
           child: MedicalExpansionTile(
             title: 'Red Flags',
-            content: 'Warning signs to watch for...',
+            content: AppText.Desc,
             isRedFlag: true,
             isRedContent: true,
           ),

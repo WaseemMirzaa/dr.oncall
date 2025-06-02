@@ -31,8 +31,8 @@ class MedicalExpansionTile extends StatelessWidget {
               color: isRedFlag ? Colors.red : AppColors.txtOrangeColor,
             )),
         textColor: isRedFlag ? Colors.red : AppColors.txtOrangeColor,
-        iconColor: Colors.grey,
-        collapsedIconColor: Colors.yellow,
+        iconColor: isRedFlag ? Colors.grey : Colors.grey,
+        collapsedIconColor: isRedFlag ? Colors.red : Colors.yellow,
         children: [
           Padding(
             padding: contentPadding ?? const EdgeInsets.all(16.0),
