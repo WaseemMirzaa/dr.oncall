@@ -64,18 +64,6 @@ class _FilterItemsState extends State<FilterItems> {
               },
             ),
             ListTile(
-              leading: Image.asset(
-                AppIcons.report,
-                width: 30,
-                height: 30,
-                color: AppColors.txtBlackColor,
-              ),
-              title: const Text('News2 Score'),
-              onTap: () {
-                Get.back();
-              },
-            ),
-            ListTile(
               leading: const Icon(
                 Icons.cancel,
                 weight: 35,
