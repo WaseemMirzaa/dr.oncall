@@ -14,13 +14,15 @@ class AboutViewView extends GetView<AboutViewController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: BackgroundContainer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AboutHeader(),
-          SubscriptionCard(),
-          LegalSection(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AboutHeader(),
+            SubscriptionCard(),
+            LegalSection(),
+          ],
+        ),
       ),
     ));
   }

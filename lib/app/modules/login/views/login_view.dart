@@ -19,28 +19,33 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: BackgroundContainer(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: LoginHeaderSection(),
-            ),
-            const SizedBox(height: 100),
-            LoginForm(
-              onLoginTap: () {
-                Get.toNamed(Routes.HOME);
-              },
-              onForgotPasswordTap: () {
-                Get.toNamed(Routes.FORGOTVIEW);
-              },
-            ),
-            Spacer(),
-            LoginBottomText(onSignUpTap: () {
-              Get.toNamed(Routes.SIGNUP);
-            }),
-          ],
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: LoginHeaderSection(),
+              ),
+              const SizedBox(height: 100),
+              LoginForm(
+                onLoginTap: () {
+                  Get.toNamed(Routes.HOME);
+                },
+                onForgotPasswordTap: () {
+                  Get.toNamed(Routes.FORGOTVIEW);
+                },
+              ),
+              // Spacer(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: LoginBottomText(onSignUpTap: () {
+                  Get.toNamed(Routes.SIGNUP);
+                }),
+              ),
+            ],
+          ),
         ),
       ),
     ));

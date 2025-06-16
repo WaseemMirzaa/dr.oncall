@@ -149,11 +149,13 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(symptom,
-                                  style: AppTextStyles.bold.copyWith(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.txtWhiteColor)),
+                              Expanded(
+                                child: Text(symptom,
+                                    style: AppTextStyles.bold.copyWith(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                        color: AppColors.txtWhiteColor)),
+                              ),
                               // icon widget
                               if (widget.showHeartIcon)
                                 Image.asset(

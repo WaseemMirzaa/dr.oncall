@@ -29,7 +29,7 @@ class PlanCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 30.0, left: 30),
       child: Container(
-        height: 210,
+        height: 213,
         margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
