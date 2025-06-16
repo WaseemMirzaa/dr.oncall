@@ -30,7 +30,7 @@ class SearchList extends StatelessWidget {
       onSymptomTap: (symptom) {
         switch (symptom) {
           case 'Chest Pain':
-            print('chest pain tapped!');
+            Get.toNamed(Routes.CHEST_PAIN);
             break;
           case 'Shortness of Breath':
             print('Shortness of Breath Tapped!');

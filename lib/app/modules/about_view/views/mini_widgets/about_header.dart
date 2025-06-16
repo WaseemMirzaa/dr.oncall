@@ -21,10 +21,15 @@ class AboutHeader extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 40.0, left: 25),
-            child: BackIconButton(
-              onTap: onBackTap ?? () => Get.back(),
+          GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 40.0, left: 25),
+              child: BackIconButton(
+                onTap: onBackTap ?? () => Get.back(),
+              ),
             ),
           ),
           const SizedBox(height: 20),

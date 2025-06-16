@@ -20,10 +20,15 @@ class SignupHeaderSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 25.0, left: 5),
-          child: BackIconButton(
-            onTap: onBackTap ?? () => Get.back(),
+        GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(top: 25.0, left: 5),
+            child: BackIconButton(
+              onTap: onBackTap ?? () => Get.back(),
+            ),
           ),
         ),
         const SizedBox(height: 15),

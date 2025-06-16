@@ -21,10 +21,15 @@ class BioChemicalHeader extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 25.0, left: 15),
-            child: BackIconButton(
-              onTap: onBackTap ?? () => Get.back(),
+          GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 25.0, left: 15),
+              child: BackIconButton(
+                onTap: onBackTap ?? () => Get.back(),
+              ),
             ),
           ),
           const SizedBox(height: 20),

@@ -19,10 +19,15 @@ class ClinicalHeader extends StatelessWidget {
       // crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 45.0, left: 8),
-          child: BackIconButton(
-            onTap: onBackTap ?? () => Get.back(),
+        GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(top: 45.0, left: 8),
+            child: BackIconButton(
+              onTap: onBackTap ?? () => Get.back(),
+            ),
           ),
         ),
         const SizedBox(height: 20),

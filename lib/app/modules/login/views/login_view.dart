@@ -1,11 +1,8 @@
 import 'package:dr_on_call/app/routes/app_pages.dart';
 import 'package:dr_on_call/app/widgets/background_container.dart';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../../config/AppImages.dart';
 import '../../../widgets/custom_textfield.dart';
 import '../controllers/login_controller.dart';
@@ -15,39 +12,48 @@ import 'mini_widgets/login_form.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BackgroundContainer(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: LoginHeaderSection(),
+      body: BackgroundContainer(
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: const EdgeInsets.all(20.0),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: LoginHeaderSection(),
+                  ),
+                  const SizedBox(height: 100),
+                  LoginForm(
+                    onLoginTap: () {
+                      Get.toNamed(Routes.HOME);
+                    },
+                    onForgotPasswordTap: () {
+                      Get.toNamed(Routes.FORGOTVIEW);
+                    },
+                  ),
+                ]),
               ),
-              const SizedBox(height: 100),
-              LoginForm(
-                onLoginTap: () {
-                  Get.toNamed(Routes.HOME);
-                },
-                onForgotPasswordTap: () {
-                  Get.toNamed(Routes.FORGOTVIEW);
-                },
-              ),
-              // Spacer(),
-              Align(
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Align(
                 alignment: Alignment.bottomCenter,
-                child: LoginBottomText(onSignUpTap: () {
-                  Get.toNamed(Routes.SIGNUP);
-                }),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: LoginBottomText(onSignUpTap: () {
+                    Get.toNamed(Routes.SIGNUP);
+                  }),
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-    ));
+    );
   }
 }

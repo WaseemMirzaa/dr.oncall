@@ -99,6 +99,7 @@ class _SymptomSelectionWidgetState extends State<News2Tiles> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: TextFormField(
+                        keyboardType: TextInputType.number,
                         controller: _controllers[symptom],
                         style: AppTextStyles.medium.copyWith(
                           fontSize: 18,
@@ -110,8 +111,8 @@ class _SymptomSelectionWidgetState extends State<News2Tiles> {
                           hintStyle: AppTextStyles.medium.copyWith(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.txtWhiteColor
-                                .withOpacity(0.6), // Slightly faded for hint
+                            color: AppColors
+                                .txtWhiteColor, // Slightly faded for hint
                           ),
                           border: InputBorder.none, // No additional border
                           contentPadding:
