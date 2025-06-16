@@ -14,7 +14,7 @@ class News2Tiles extends StatefulWidget {
     Key? key,
     required this.symptoms,
     required this.onSelectionChanged,
-    required this.onSymptomTap, // Required parameter
+    required this.onSymptomTap,
     this.padding,
     this.spacing = 8.0,
   }) : super(key: key);
@@ -25,6 +25,24 @@ class News2Tiles extends StatefulWidget {
 
 class _SymptomSelectionWidgetState extends State<News2Tiles> {
   String? _selectedSymptom;
+  // Map to store text input for each symptom
+  final Map<String, TextEditingController> _controllers = {};
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize a TextEditingController for each symptom
+    for (var symptom in widget.symptoms) {
+      _controllers[symptom] = TextEditingController();
+    }
+  }
+
+  @override
+  void dispose() {
+    // Dispose all controllers to prevent memory leaks
+    _controllers.values.forEach((controller) => controller.dispose());
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,63 +59,74 @@ class _SymptomSelectionWidgetState extends State<News2Tiles> {
           ...widget.symptoms.map((symptom) {
             final isSelected = _selectedSymptom == symptom;
             return Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
+              padding: EdgeInsets.only(bottom: widget.spacing),
               child: GestureDetector(
                 onTap: () {
                   setState(() {
                     _selectedSymptom = symptom;
-
                     // Call the navigation callback with the selected symptom
                     widget.onSymptomTap(symptom);
+                    // Notify selection change with current inputs
+                    widget.onSelectionChanged(
+                      _controllers.entries
+                          .where((entry) => entry.value.text.isNotEmpty)
+                          .map((entry) => entry.value.text)
+                          .toList(),
+                    );
                   });
                 },
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 10.0),
-                  child: Container(
-                    height: 60,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: const Color(0xFFEEC643), // Yellow border
-                        width: 1,
-                      ),
-                      // Add gradient overlay for selected item
-                      gradient: isSelected
-                          ? LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                const Color(0xFF0A1A2F).withOpacity(0.7),
-                                const Color(0xFF0A1A3F),
-                              ],
-                            )
-                          : null,
+                child: Container(
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: const Color(0xFFEEC643), // Yellow border
+                      width: 1,
                     ),
-                    child: Row(
-                      children: [
-                        // Symptom text
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Text(symptom,
-                                style: AppTextStyles.medium.copyWith(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.txtWhiteColor)),
-                          ),
+                    gradient: isSelected
+                        ? LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              const Color(0xFF0A1A2F).withOpacity(0.7),
+                              const Color(0xFF0A1A3F),
+                            ],
+                          )
+                        : null,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: TextFormField(
+                        controller: _controllers[symptom],
+                        style: AppTextStyles.medium.copyWith(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.txtWhiteColor,
                         ),
-                        // Dropdown icon at the front
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10.0),
-                          child: Icon(
-                            Icons.keyboard_arrow_down,
-                            color: isSelected
-                                ? AppColors.txtWhiteColor
-                                : AppColors.txtOrangeColor,
-                            size: 28,
+                        decoration: InputDecoration(
+                          hintText: symptom,
+                          hintStyle: AppTextStyles.medium.copyWith(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.txtWhiteColor
+                                .withOpacity(0.6), // Slightly faded for hint
                           ),
+                          border: InputBorder.none, // No additional border
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 15.0),
                         ),
-                      ],
+                        onChanged: (value) {
+                          // Notify selection change with updated inputs
+                          widget.onSelectionChanged(
+                            _controllers.entries
+                                .where((entry) => entry.value.text.isNotEmpty)
+                                .map((entry) => entry.value.text)
+                                .toList(),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
