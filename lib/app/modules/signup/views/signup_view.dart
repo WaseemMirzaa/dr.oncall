@@ -37,10 +37,13 @@ class SignupView extends GetView<SignupController> {
               hasScrollBody: false,
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: SignupBottomText(
-                  onLogInTap: () {
-                    Get.toNamed(Routes.LOGIN);
-                  },
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: SignupBottomText(
+                    onLogInTap: () {
+                      Get.toNamed(Routes.LOGIN);
+                    },
+                  ),
                 ),
               ),
             ),
