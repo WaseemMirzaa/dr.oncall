@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class SymptomSelectionWidget extends StatefulWidget {
   final List<String> symptoms;
   final ValueChanged<List<String>> onSelectionChanged;
-  final Function(String) onSymptomTap; // New callback for navigation
+  final Function(String) onSymptomTap;
   final EdgeInsetsGeometry? padding;
   final double spacing;
   final bool showHeartIcon;
@@ -19,7 +19,7 @@ class SymptomSelectionWidget extends StatefulWidget {
     Key? key,
     required this.symptoms,
     required this.onSelectionChanged,
-    required this.onSymptomTap, // Required parameter
+    required this.onSymptomTap,
     this.padding,
     this.spacing = 8.0,
     this.showHeartIcon = false,
@@ -34,6 +34,16 @@ class SymptomSelectionWidget extends StatefulWidget {
 class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
   String? _selectedSymptom;
   String _searchQuery = '';
+  final Map<String, bool> _heartStates = {};
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize heart states for all symptoms
+    for (var symptom in widget.symptoms) {
+      _heartStates[symptom] = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,14 +115,13 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
             // Symptom list
             ...filteredSymptoms.map((symptom) {
               final isSelected = _selectedSymptom == symptom;
+              final isHeartActive = _heartStates[symptom] ?? false;
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
                       _selectedSymptom = symptom;
-
-                      // Call the navigation callback with the selected symptom
                       widget.onSymptomTap(symptom);
                     });
                   },
@@ -121,13 +130,11 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                     child: Container(
                       height: 60,
                       decoration: BoxDecoration(
-                        // color: const Color(0xFF0A1A2F),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                           color: const Color(0xFFEEC643), // Yellow border
                           width: 1,
                         ),
-                        // Add gradient overlay for selected item
                         gradient: isSelected
                             ? LinearGradient(
                                 begin: Alignment.topCenter,
@@ -150,29 +157,44 @@ class _SymptomSelectionWidgetState extends State<SymptomSelectionWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Expanded(
-                                child: Text(symptom,
-                                    style: AppTextStyles.bold.copyWith(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                        color: AppColors.txtWhiteColor)),
-                              ),
-                              // icon widget
-                              if (widget.showHeartIcon)
-                                Image.asset(
-                                  isSelected
-                                      ? AppIcons.like
-                                      : AppIcons.heart, // swap icons here
-                                  width: 25,
-                                  height: 25,
-                                  color: isSelected
-                                      ? Colors.grey
-                                      : AppColors.txtRedColor,
+                                child: Text(
+                                  symptom,
+                                  style: AppTextStyles.bold.copyWith(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.txtWhiteColor),
                                 ),
-
+                              ),
+                              // Heart icon with separate tap handler
+                              if (widget.showHeartIcon)
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _heartStates[symptom] =
+                                          !(_heartStates[symptom] ?? false);
+                                      // Notify parent of selection change
+                                      widget.onSelectionChanged(_heartStates
+                                          .entries
+                                          .where((entry) => entry.value)
+                                          .map((entry) => entry.key)
+                                          .toList());
+                                    });
+                                  },
+                                  child: Image.asset(
+                                    isHeartActive
+                                        ? AppIcons.like
+                                        : AppIcons.heart,
+                                    width: 25,
+                                    height: 25,
+                                    color: isHeartActive
+                                        ? Colors.grey
+                                        : AppColors.txtRedColor,
+                                  ),
+                                ),
+                              // Recent icon
                               if (widget.showRecentIcon)
                                 Image.asset(
-                                  AppIcons
-                                      .recent, // Make sure this path is correct
+                                  AppIcons.recent,
                                   width: 25,
                                   height: 25,
                                   color: isSelected
