@@ -14,6 +14,8 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   print("App starting...");
+  print('FIREBASE APP: ${Firebase.app().options.projectId}');
+
   runApp(
     GetMaterialApp(
       theme: ThemeData(

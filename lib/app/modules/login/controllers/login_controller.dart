@@ -40,6 +40,8 @@ class LoginController extends GetxController {
       );
 
       CustomSnackBar.success("Logged in successfully!");
+      emailController.clear();
+      passwordController.clear();
       Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
       String errorMessage;

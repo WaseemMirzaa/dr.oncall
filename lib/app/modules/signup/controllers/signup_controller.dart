@@ -71,6 +71,11 @@ class SignupController extends GetxController {
 
       CustomSnackBar.success("Account created. Please log in.");
       Get.toNamed(Routes.LOGIN);
+
+      emailController.clear();
+      passwordController.clear();
+      phoneController.clear();
+      usernameController.clear();
     } on FirebaseAuthException catch (e) {
       String errorMessage;
 

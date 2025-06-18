@@ -22,18 +22,20 @@ class ForgotviewController extends GetxController {
     isLoading.value = true;
 
     try {
-      // final signInMethods =
-      //     await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
-      //
-      // if (signInMethods.isEmpty) {
+      print("Checking email: $email");
+      final methods =
+          await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
+      print("Available sign-in methods for $email: $methods");
+
+      // if (methods.isEmpty || !methods.contains('password')) {
       //   CustomSnackBar.error("This email is not registered.");
       //   return;
       // }
 
-      // ✅ Step 2: Send reset email
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      CustomSnackBar.success("Reset email sent. Check your inbox.");
+      CustomSnackBar.success("Reset email sent.");
       Get.toNamed(Routes.LOGIN);
+      emailController.clear();
     } on FirebaseAuthException catch (e) {
       // ✅ Show user-friendly errors
       if (e.code == 'invalid-email') {
