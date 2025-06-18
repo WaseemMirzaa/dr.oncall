@@ -25,10 +25,10 @@ class ForgotviewView extends GetView<ForgotviewController> {
             ),
             const SizedBox(height: 100),
             ForgotForm(
-              onSendTap: () {
-                Get.toNamed(Routes.LOGIN);
-              },
-            ),
+                // onSendTap: () {
+                //   Get.toNamed(Routes.LOGIN);
+                // },
+                ),
             Spacer(),
             ForgotBottomText(onLoginTap: () {
               Get.toNamed(Routes.LOGIN);

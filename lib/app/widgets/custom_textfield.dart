@@ -5,12 +5,14 @@ class CustomTextField extends StatefulWidget {
   final String hintText;
   final bool isPassword;
   final TextEditingController? controller;
+  final TextInputType keyboardType;
 
   const CustomTextField({
     Key? key,
     required this.hintText,
     this.isPassword = false,
     this.controller,
+    this.keyboardType = TextInputType.text,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextField(
       controller: widget.controller,
       obscureText: widget.isPassword ? _obscureText : false,
+      keyboardType: widget.keyboardType,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: widget.hintText,
@@ -45,6 +48,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Color(0xFFEEC643), width: 2),
         ),
+
         suffixIcon: widget.isPassword
             ? IconButton(
                 icon: Icon(
