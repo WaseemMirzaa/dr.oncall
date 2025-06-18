@@ -30,7 +30,7 @@ class LoginView extends GetView<LoginController> {
                   const SizedBox(height: 100),
                   LoginForm(
                     onLoginTap: () {
-                      Get.toNamed(Routes.HOME);
+                      controller.login();
                     },
                     onForgotPasswordTap: () {
                       Get.toNamed(Routes.FORGOTVIEW);
