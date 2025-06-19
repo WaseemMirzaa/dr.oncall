@@ -18,10 +18,7 @@ class FavouritesView extends GetView<FavouritesController> {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0, top: 5),
-              child: FavouritesHeader(),
-            ),
+            FavouritesHeader(),
             SizedBox(
               height: 50,
             ),

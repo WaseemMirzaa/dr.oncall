@@ -16,10 +16,7 @@ class News2CoreView extends GetView<News2CoreController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: News2Header(),
-              ),
+              News2Header(),
               SizedBox(
                 height: 50,
               ),

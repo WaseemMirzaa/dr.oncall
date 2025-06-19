@@ -16,10 +16,7 @@ class ClinicalDiagnosisView extends GetView<ClinicalDiagnosisController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 20),
-                child: ClinicalDiagnosisHeader(),
-              ),
+              ClinicalDiagnosisHeader(),
               SizedBox(
                 height: 50,
               ),

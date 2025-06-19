@@ -14,7 +14,7 @@ class SearchView extends GetView<SearchController> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 15.0, top: 5),
+              padding: const EdgeInsets.only(right: 20.0, top: 20, left: 20),
               child: SearchHeader(),
             ),
             SizedBox(

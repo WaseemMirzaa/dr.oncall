@@ -17,10 +17,7 @@ class RecentView extends GetView<RecentController> {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0, top: 5),
-              child: RecentHeader(),
-            ),
+            RecentHeader(),
             SizedBox(
               height: 50,
             ),

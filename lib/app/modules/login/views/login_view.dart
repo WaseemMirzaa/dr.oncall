@@ -23,11 +23,7 @@ class LoginView extends GetView<LoginController> {
               padding: const EdgeInsets.all(20.0),
               sliver: SliverList(
                 delegate: SliverChildListDelegate([
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: LoginHeaderSection(),
-                  ),
-                  const SizedBox(height: 100),
+                  LoginHeaderSection(),
                   LoginForm(
                     onLoginTap: () {
                       controller.login();
