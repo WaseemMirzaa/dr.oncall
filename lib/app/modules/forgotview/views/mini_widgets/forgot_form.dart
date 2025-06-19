@@ -1,3 +1,4 @@
+import 'package:dr_on_call/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../config/AppColors.dart';
@@ -22,16 +23,27 @@ class ForgotForm extends StatelessWidget {
           keyboardType: TextInputType.emailAddress,
         ),
         const SizedBox(height: 20),
-        Obx(() => controller.isLoading.value
-            ? const CircularProgressIndicator()
-            : RoundedTextContainer(
-                text: AppText.send,
-                color: AppColors.baseColor,
-                onTap: () async {
-                  await controller.sendResetLink();
-                  onSendTap?.call(); // 👈 optional callback after success
-                },
-              )),
+
+        // TODO: just uncomment this calling method then the back will work
+
+        // Obx(() => controller.isLoading.value
+        //     ? const CircularProgressIndicator()
+        //     : RoundedTextContainer(
+        //         text: AppText.send,
+        //         color: AppColors.baseColor,
+        //         onTap: () async {
+        //           await controller.sendResetLink();
+        //           onSendTap?.call(); // 👈 optional callback after success
+        //         },
+        //       )),
+
+        RoundedTextContainer(
+          text: AppText.send,
+          color: AppColors.baseColor,
+          onTap: () {
+            Get.toNamed(Routes.LOGIN);
+          },
+        )
       ],
     );
   }

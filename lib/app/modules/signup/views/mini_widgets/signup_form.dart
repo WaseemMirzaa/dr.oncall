@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../../../config/AppColors.dart';
 import '../../../../../config/AppText.dart';
 import '../../../../../config/AppTextStyle.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../../widgets/custom_textfield.dart';
 import '../../../../widgets/rounded_text_container.dart';
 import '../../controllers/signup_controller.dart';
@@ -42,14 +43,23 @@ class SignUpForm extends StatelessWidget {
         ),
         const SizedBox(height: 20),
 
+        // TODO: just uncomment this calling method then the back will work
         // Show loader or button
-        Obx(() => controller.isLoading.value
-            ? const CircularProgressIndicator()
-            : RoundedTextContainer(
-                text: AppText.signUp,
-                color: AppColors.baseColor,
-                onTap: controller.signUp,
-              )),
+        // Obx(() => controller.isLoading.value
+        //     ? const CircularProgressIndicator()
+        //     : RoundedTextContainer(
+        //         text: AppText.signUp,
+        //         color: AppColors.baseColor,
+        //         onTap: controller.signUp,
+        //       )),
+
+        RoundedTextContainer(
+          text: AppText.signUp,
+          color: AppColors.baseColor,
+          onTap: () {
+            Get.toNamed(Routes.LOGIN);
+          },
+        ),
 
         const SizedBox(height: 15),
 
